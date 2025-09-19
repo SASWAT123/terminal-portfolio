@@ -619,7 +619,7 @@ export default function App() {
             {lines.map((l, i) => (<div key={i} dangerouslySetInnerHTML={{ __html: ansiToHtml(l) }} />))}
             <div className="flex items-center gap-2 mt-1">
               <span className="whitespace-pre">{prompt}</span>
-              <input ref={inputRef} value={cmd} onChange={(e) => setCmd(e.target.value)} onKeyDown={onKeyDown} className="flex-1 bg-transparent outline-none placeholder:opacity-40 min-w-0" placeholder="type a command (try: help)" autoCapitalize="off" autoCorrect="off" spellCheck={false} />
+              <input ref={inputRef} value={cmd} onChange={(e) => setCmd(e.target.value)} onKeyDown={onKeyDown} className={`flex-1 bg-transparent outline-none placeholder:opacity-40 min-w-0 ${themeCfg.text}`} placeholder="type a command (try: help)" autoCapitalize="off" autoCorrect="off" spellCheck={false} />
             </div>
           </div>
 
