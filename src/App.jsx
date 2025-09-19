@@ -494,7 +494,8 @@ export default function App() {
           const downloadArg = rest.filter(arg => !arg.startsWith("-"))[0];
           if (downloadArg === "resume") {
             const link = document.createElement("a");
-            link.href = "/resume.pdf";
+            // Use import.meta.env.BASE_URL for proper path resolution in different environments
+            link.href = `${import.meta.env.BASE_URL}resume.pdf`;
             link.download = `${resume.name.replace(/\s+/g, "_")}_Resume.pdf`;
             document.body.appendChild(link);
             link.click();
