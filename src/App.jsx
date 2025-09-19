@@ -560,8 +560,8 @@ export default function App() {
   }
 
   return (
-    <div className={`${dark ? "dark" : ""} min-h-screen ${themeCfg.bg} ${themeCfg.text} transition-colors duration-300`}>
-      <div className={`mx-auto ${TERMINAL_SIZES[terminalSize] || TERMINAL_SIZES.medium} px-3 py-6 sm:px-6`}>
+    <div className={`${dark ? "dark" : ""} min-h-screen ${themeCfg.bg} ${themeCfg.text} transition-colors duration-300 overflow-x-hidden`}>
+      <div className={`mx-auto ${TERMINAL_SIZES[terminalSize] || TERMINAL_SIZES.medium} px-3 py-6 sm:px-6 max-w-full`}>
         {/* Header */}
         <div className={`mb-4 rounded-2xl ${themeCfg.panel} backdrop-blur p-4 shadow-sm`}>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -619,7 +619,7 @@ export default function App() {
             {lines.map((l, i) => (<div key={i} dangerouslySetInnerHTML={{ __html: ansiToHtml(l) }} />))}
             <div className="flex items-center gap-2 mt-1">
               <span className="whitespace-pre">{prompt}</span>
-              <input ref={inputRef} value={cmd} onChange={(e) => setCmd(e.target.value)} onKeyDown={onKeyDown} className={`flex-1 bg-transparent outline-none placeholder:opacity-40 min-w-0 ${themeCfg.text}`} placeholder="type a command (try: help)" autoCapitalize="off" autoCorrect="off" spellCheck={false} />
+              <input ref={inputRef} value={cmd} onChange={(e) => setCmd(e.target.value)} onKeyDown={onKeyDown} className={`flex-1 bg-transparent outline-none placeholder:opacity-40 min-w-0 ${themeCfg.text}`} placeholder="type a command (try: help)" autoCapitalize="off" autoCorrect="off" spellCheck={false} style={{fontSize: '16px'}} />
             </div>
           </div>
 
