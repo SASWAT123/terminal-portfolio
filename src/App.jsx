@@ -562,12 +562,13 @@ export default function App() {
     <div className={`${dark ? "dark" : ""} min-h-screen ${themeCfg.bg} ${themeCfg.text} transition-colors duration-300`}>
       <div className={`mx-auto ${TERMINAL_SIZES[terminalSize] || TERMINAL_SIZES.medium} px-3 py-6 sm:px-6`}>
         {/* Header */}
-        <div className={`mb-4 rounded-2xl ${themeCfg.panel} backdrop-blur p-4 shadow-sm flex items-center justify-between`}>
-          <div>
-            <h1 className="text-xl sm:text-2xl font-bold">{resume.name}</h1>
-            <p className={`text-sm ${themeCfg.secondary}`}>{resume.title}</p>
-          </div>
-          <div className="flex items-center gap-2">
+        <div className={`mb-4 rounded-2xl ${themeCfg.panel} backdrop-blur p-4 shadow-sm`}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-xl sm:text-2xl font-bold">{resume.name}</h1>
+              <p className={`text-sm ${themeCfg.secondary} break-words`}>{resume.title}</p>
+            </div>
+            <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={() => setDark((d) => !d)}
               className={`rounded-xl px-3 py-1 text-sm border transition-all duration-200 ${
@@ -600,6 +601,7 @@ export default function App() {
             >
               {Object.keys(TERMINAL_SIZES).map((size) => (<option key={size} value={size} className="bg-inherit">{size}</option>))}
             </select>
+            </div>
           </div>
         </div>
 
